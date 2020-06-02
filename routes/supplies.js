@@ -10,6 +10,9 @@ router.delete('/:id', suppliesCtrl.delete);
 router.get('/:id/edit', suppliesCtrl.edit);
 router.put('/:id', suppliesCtrl.update);
 
-// function isLoggedIn(req, res, )
+function isLoggedIn(req, res, next) {
+    if ( req.isAuthenticated() ) return next();
+    res.redirect('/auth/google');
+  }
 
 module.exports = router;
