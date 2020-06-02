@@ -25,4 +25,9 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-module.exports = mongoose.;
+function isLoggedIn(req, res, next) {
+  if ( req.isAuthenticated() ) return next();
+  res.redirect('/auth/google');
+}
+
+module.exports = router;
