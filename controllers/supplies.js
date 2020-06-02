@@ -1,4 +1,4 @@
-const Supply = require('../models/supply');
+const Supplies = require('../data/supplies');
 
 module.exports = {
     index,
@@ -11,38 +11,38 @@ module.exports = {
 }
 
 function update(req, res) {
-    req.body.bought === req.body.bought === 'on';
-    Supply.update(req.params.id, req.body);
+    Supplies.update(req.params.idx, req.body);
     res.redirect('/supplies');
 }
 
 function edit(req, res) {
     res.render('/supplies/update', 
-    {supply: Supply.getOne(req.params.id)
-    });
-}
-
-function deleteOne(req, res) {
-    Supply.deleteOne(req.params.id);
-    res.redirect('/supplies');
-}
+    {supply: Supplies.getOne(req.params.idx), 
+        idx: req.params.idx}
+    )}
 
 function create(req, res) {
-    req.body.bought = false;
-    Supply.create(req.body);
+    Supplies.add(req.body);
     res.redirect('/supplies');
+}
+
+function index(req, res) {
+    res.render('supplies/index', 
+    {supplies: Supply.getAll()
+    })
+}
+
+function show(req, res) {
+    res.render('supplies/show', 
+    { supply: Supplies.getOne(req.params.idx), 
+        idx: req.params.idx})
 }
 
 function addSupply(req, res) {
     res.render('/supplies/new');
 }
 
-function index(req, res) {
-    res.render('supplies/new', {
-        supplies: Supply.getAll(),
-    });
-}
-
-function show(req, res) {
-    res.render('supplies/show', { supply: Supplies.getOne(req.params.idx), idx: req.params.idx})
+function deleteOne(req, res) {
+    Supply.deleteOne(req.params.id);
+    res.redirect('/supplies');
 }

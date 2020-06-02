@@ -1,10 +1,38 @@
 const supplies = [
-    {id: 001, supply: 'tent', bought: false},
-    {id: 002, supply: 'stakes', bought: false},
-    {id: 003, supply: 'flashlight', bought: false},
-    {id: 004, supply: 'chairs', bought: false},
-    {id: 005, supply: 'matches', bought: false},
-    {id: 006, supply: 'lighter', bought: false},
-    {id: 007, supply: 'cooler', bought: false},
-    {id: 008, supply: 'water', bought: false},
+    {supply: 'tent', bought: false},
+    {supply: 'stakes', bought: false},
+    {supply: 'flashlight', bought: false},
+    {supply: 'chairs', bought: false},
+    {supply: 'matches', bought: false},
+    {supply: 'lighter', bought: false},
+    {supply: 'cooler', bought: false},
+    {supply: 'water', bought: false}
 ]
+
+module.exports = {
+    getAll,
+    getOne,
+    deleteOne,
+    add,
+    update
+}
+
+function update(idx, supply) {
+    supplies[idx] = supply;
+}
+
+function add(supply) {
+    supplies.push(supply);
+}
+
+function getAll() {
+    return supplies;
+}
+
+function getOne(idx) {
+    return supplies[idx];
+}
+
+function deleteOne(idx) {
+    supplies.splice(idx, 1);
+}
