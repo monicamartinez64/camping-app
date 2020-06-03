@@ -1,8 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <nav>
+    <ul id="nav">
+    <li id="nav"><a href="/">Home</a></li>
+    <li id="nav"><a href="">Campsites</a></li>
+    <li id="nav"><a href="">Supplies</a></li>
+    <li id="nav"><a href="">Visits</a></li>
+    <li>
+      <% if (user) { %>
+          <a href="/logout"><i class="material-icons left"><%= user.name %></i>Log Out</a>
+      <% } else { %>
+          <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+      <% } %>
+    </li>
+  </ul>
+  </nav>
 </head>
-<body>

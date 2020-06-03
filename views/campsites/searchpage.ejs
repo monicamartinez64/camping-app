@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="/stylesheets/style.css">
+<%- include('../partials/header'); %>
+
 <h1>Search Page</h1>
 <form action="/campsites/query" method="POST">
     <input type="text" name="state" placeholder="Please enter a state (2 letters)">
@@ -12,6 +13,10 @@
         <%= park.name %><br>
         <% if (park.images.length) { %>
             <img width=500 src="<%= park.images[0].url %>" alt=""><br>
-        <% } %>    
+            <% } %>
+            <form action="/campsites/:id" method="GET">
+            <button>View Park Details</button>
+          </form></br>   
+            <button>Add Park to Visits</button></br>
         <% }) %>
 <% } %>
