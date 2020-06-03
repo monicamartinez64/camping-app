@@ -1,10 +1,13 @@
 const Campsite = require('../models/campsite');
 const Parks = require('../config/parks');
 const axios = require('axios');
+const mongoose = require('mongoose');
 
 module.exports = {
     query,
-    search
+    search,
+    showPark,
+    addPark
 }
 
 function query(req, res) {
@@ -19,10 +22,15 @@ function search(req, res) {
     })
 }
 
-// Need to set up a details page for the park (a link in the searchpage.ejs)
-// When clicked, a user gets all the details about the park a button to add to their favorites
-// Write a route for the button (inside the forEach loop) to pass the park into a controller function 
-// Write the controller function to add the park to the database, referencing the user
+function showPark(req, res) {
+    axios.get(`https://developer.nps.gov/api/v1/parks?api_key=${process.env.PARK_API_KEY}&parkCode=${req.params.parkCode}`)
+    .then(response => {
+        console.log(response.data)
+        res.render('campsites/parkDetails', {park: response.data.data[0], user: req.user})
+    })
+}
+
+
 function addPark(req, res) {
     req.body.user = req.user._id;
     const newPark = new Campsite(req.body);
@@ -30,6 +38,8 @@ function addPark(req, res) {
         res.redirect('/');
     })
 }
+
+
 function getParks(req, res) {
     Campsite.find({user: req.user._id}, function(err, parks) {
         res.render('campsites/index', {parks: parks, user: req.user})

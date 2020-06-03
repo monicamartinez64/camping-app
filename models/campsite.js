@@ -6,19 +6,30 @@ const campsiteSchema = new Schema({
         type: String,
         required: true,
     },
-    location:{
+    image: {
         type: String,
-        required: true,
     },
-    amenities: {
+    addresses:{
+        type: [String],
+    },
+    topics: {
         type: [String],
     },
     activities: {
         type: [String],
     },
+    url: {
+        type: String,
+    },
+    weatherInfo: {
+        type: String,
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: "User"
+    },
+    parkCode: {
+        type: String,
     }
 }, {
     timestamps: true
