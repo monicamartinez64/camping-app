@@ -1,5 +1,4 @@
 <%- include('../partials/header'); %>
-
 <h1>Search Page</h1>
 <form action="/campsites/query" method="POST">
     <input type="text" name="state" placeholder="Please enter a state (2 letters)">
@@ -10,13 +9,26 @@
 <% } %>
 <% if(parks) { %>
     <% parks.forEach((park) => { %>
+        <form action="/campsites/add" method="POST">
         <%= park.name %><br>
         <% if (park.images.length) { %>
             <img width=500 src="<%= park.images[0].url %>" alt=""><br>
             <% } %>
-            <form action="/campsites/:id" method="GET">
-            <button>View Park Details</button>
-          </form></br>   
-            <button>Add Park to Visits</button></br>
+                   <input hidden name="name" value="<%= park.name %>">
+                   <input hidden name="activities" value="<%= park.activities %>"> 
+                   <input hidden name="topics" value="<%= park.topics %>"> 
+                   <input hidden name="addresses" value="<%= park.addresses %>"> 
+                   <input hidden name="weatherInfo" value="<%= park.weatherInfo %>"> 
+                   <input hidden name="url" value="<%= park.url %>"> 
+                   <% if (park.images.length) { %>
+                    <input hidden name="image" value="<%= park.images[0].url %>"> 
+                    <input hidden name="parkCode" value="<%=park.parkCode%>">
+                    <% } %>
+                <button>Add Park to Visits</button></br>
+            </form>   
+            <form action="/campsites/<%= park.parkCode %>/query" method="GET">
+            <button type="submit">View Park Details</button>
+          </form></br>
         <% }) %>
 <% } %>
+<%- include('../partials/footer') %>
