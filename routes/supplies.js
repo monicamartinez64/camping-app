@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var suppliesCtrl = require('../controllers/supplies');
 
-router.post('/', suppliesCtrl.create);
-router.get('/', suppliesCtrl.getSupplies);
+router.post('/', isLoggedIn, suppliesCtrl.create);
+router.get('/', isLoggedIn ,suppliesCtrl.getSupplies);
 
 router.get('/', suppliesCtrl.index);
 // router.get('/new', suppliesCtrl.addSupply);
