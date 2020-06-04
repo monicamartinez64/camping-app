@@ -1,0 +1,24 @@
+<%- include('../partials/header'); %>
+
+
+<h1>My Campsites</h1><hr>
+
+
+<% parks.forEach(parks => { %> 
+
+<br>
+   <div><a href=""></a><%= parks.name %> National Park</a></div><br> 
+
+
+
+<form action="/campsites/<%= parks._id %>?_method=DELETE" method="POST">
+   <button>Remove Park</button><br></form>
+
+
+
+<% }) %> 
+<br>
+<button><a href="/campsites/query">Add a New Campsite</a></button><br>
+
+
+<%- include('../partials/footer'); %>

@@ -1,13 +1,4 @@
-const supplies = [
-    {supply: 'tent', bought: false},
-    {supply: 'stakes', bought: false},
-    {supply: 'flashlight', bought: false},
-    {supply: 'chairs', bought: false},
-    {supply: 'matches', bought: false},
-    {supply: 'lighter', bought: false},
-    {supply: 'cooler', bought: false},
-    {supply: 'water', bought: false}
-]
+const supplies = [];
 
 module.exports = {
     getAll,

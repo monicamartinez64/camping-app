@@ -9,7 +9,7 @@
 <% } %>
 <% if(parks) { %>
     <% parks.forEach((park) => { %>
-        <form action="/campsites/add" method="POST">
+        <form action="/campsites/" method="POST">
         <%= park.name %><br>
         <% if (park.images.length) { %>
             <img width=500 src="<%= park.images[0].url %>" alt=""><br>
@@ -24,7 +24,7 @@
                     <input hidden name="image" value="<%= park.images[0].url %>"> 
                     <input hidden name="parkCode" value="<%=park.parkCode%>">
                     <% } %>
-                <button>Add Park to Visits</button></br>
+                <button type="submit">Add Park to Visits</button>
             </form>   
             <form action="/campsites/<%= park.parkCode %>/query" method="GET">
             <button type="submit">View Park Details</button>

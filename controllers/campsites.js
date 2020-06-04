@@ -6,8 +6,10 @@ const mongoose = require('mongoose');
 module.exports = {
     query,
     search,
-    showPark,
-    addPark
+    show,
+    create,
+    getParks,
+    delete: deletePark,
 }
 
 function query(req, res) {
@@ -22,7 +24,7 @@ function search(req, res) {
     })
 }
 
-function showPark(req, res) {
+function show(req, res) {
     axios.get(`https://developer.nps.gov/api/v1/parks?api_key=${process.env.PARK_API_KEY}&parkCode=${req.params.parkCode}`)
     .then(response => {
         console.log(response.data)
@@ -31,17 +33,29 @@ function showPark(req, res) {
 }
 
 
-function addPark(req, res) {
+function create(req, res) {
     req.body.user = req.user._id;
     const newPark = new Campsite(req.body);
     newPark.save(function(err) {
-        res.redirect('/');
+        res.redirect('/campsites');
     })
 }
-
 
 function getParks(req, res) {
     Campsite.find({user: req.user._id}, function(err, parks) {
-        res.render('campsites/index', {parks: parks, user: req.user})
+        res.render('campsites', {parks, user: req.user})
     })
 }
+
+function deletePark(req, res) {
+    Campsite.findByIdAndDelete(req.params.id, function(err){
+        res.redirect('/campsites')
+    })
+    console.log(deletePark);
+}
+
+
+
+// Campsite.findByIdAndDelete(req.params.id, function(err){
+    //     res.redirect('/')
+    // }) 

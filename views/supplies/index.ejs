@@ -1,30 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="navbar-fixed">
-        <nav>
-          <div class="nav-wrapper">
-            <a href="" class="brand-logo left">Camping Supplies List</a>
+<%- include('../partials/header'); %>
 
 
-            <ul class="right">
-              <li>
-                <% if (user) { %>
-                    <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-                <% } else { %>
-                    <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-                <% } %>
-              </li>
-            </ul>
+<h1>Camping Supplies</h1>
 
-            
-          </div>
-        </nav>
-      </div>
-</body>
-</html>
+<form action="/supplies" method="POST">
+
+
+                   <input name="itemName"  placeholder="Name" value="<%= supplies.itemName %>"> 
+                   <input name="itemBrand" placeholder="Brand" value="<%= supplies.itemBrand %>"> 
+                   <input name="itemQuantity" type="number" placeholder="Quantity" value="<%= supplies.itemQuantity %>"> 
+                   <input name="itemCategory" placeholder="Category" value="<%= supplies.itemCategory %>">
+
+<button type="submit">Add to List</button>
+</form>
+
+<form>
+    <div>
+            <% if(supplies) { %>
+                <% supplies.forEach((s) => { %>
+                    <%= s.itemName %> 
+                    <%= s.itemBrand %> 
+                    <%= s.itemQuantity %> 
+                    <%= s.itemCategory %> 
+            <%   }) %> 
+            <%    } %> 
+    </div>
+</form>
+
+<%- include('../partials/footer'); %>

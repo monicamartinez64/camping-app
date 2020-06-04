@@ -1,19 +1,35 @@
 <%- include('../partials/header'); %>
+<h1><%= park.name %> National Park</h1>
 
-<h1>Park Details</h1>
-<ul>
-    <li><%= park.name %></li> 
-    <li><%= park.addresses %></li> 
-    <li><%= park.weatherInfo %></li> 
-    <li><%= park.images[0].url %></li> 
-    <li><a href="<%= park.url%>"></a></li> 
-    <li><%= park.name %></li> 
-    <li><%= park.name %></li> 
-</ul>
+<img class="parkimage" src="<%= park.images[0].url%>"><br>
+
+<div><%= park.addresses%></div><br> 
+
+<div><%= park.weatherInfo %></div><br> 
+
+<div><%= park.activities %></div><br> 
+
+<div><%= park.topics %></div><br>
+
+<div><a href="<%= park.url%>" target="_blank">Visit Park Site for More Info</a></div><br>
+
+<form action="/campsites/" method="POST">
+               <input hidden name="name" value="<%= park.name %>">
+               <input hidden name="activities" value="<%= park.activities %>"> 
+               <input hidden name="topics" value="<%= park.topics %>"> 
+               <input hidden name="addresses" value="<%= park.addresses %>"> 
+               <input hidden name="weatherInfo" value="<%= park.weatherInfo %>"> 
+               <input hidden name="url" value="<%= park.url %>"> 
+                <input hidden name="image" value="<%= park.images[0].url %>"> 
+                <input hidden name="parkCode" value="<%=park.parkCode%>">
+            <button type="submit">Add Park to Visits</button>
+</form>
+
+
+
+
+
+
 <%- include('../partials/footer'); %>
-
-
-
-
 
 

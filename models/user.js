@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const Schema = mongoose.Schema;
 
 const supplySchema = new mongoose.Schema ({
     itemName: {

@@ -39,3 +39,16 @@ li a:hover:not(.active) {
 .active {
   background-color: #4CAF50;
 }
+
+button {
+  display: inline;
+  margin: 20px;
+}
+
+.parkimage {
+  max-height: 200px;
+}
+
+button a {
+  color: black;
+}
