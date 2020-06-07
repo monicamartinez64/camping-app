@@ -4,11 +4,13 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <nav>
-    <ul id="nav">
-    <li id="nav"><a href="/">Home</a></li>
-    <li id="nav"><a href="/campsites">Campsites</a></li>
-    <li id="nav"><a href="/supplies">Supplies</a></li>
-    <li id="oauth">
+    <ul class="nav">
+    <li class="nav"><a href="/">Home</a></li>
+    <li class="nav"><a href="/campsites">Campsites</a></li>
+    <li class="nav"><a href="/supplies">Supplies</a></li>
+
+    
+    <li class="oauth">
       <% if (user) { %>
           <a href="/logout"><i class="material-icons left"><%= user.name %></i>Log Out</a>
       <% } else { %>

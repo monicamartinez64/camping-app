@@ -32,7 +32,6 @@ function show(req, res) {
     })
 }
 
-
 function create(req, res) {
     req.body.user = req.user._id;
     const newPark = new Campsite(req.body);
@@ -53,9 +52,3 @@ function deletePark(req, res) {
     })
     console.log(deletePark);
 }
-
-
-
-// Campsite.findByIdAndDelete(req.params.id, function(err){
-    //     res.redirect('/')
-    // }) 

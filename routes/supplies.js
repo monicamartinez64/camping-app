@@ -4,13 +4,10 @@ var suppliesCtrl = require('../controllers/supplies');
 
 router.post('/', isLoggedIn, suppliesCtrl.create);
 router.get('/', isLoggedIn ,suppliesCtrl.getSupplies);
-
-router.get('/', suppliesCtrl.index);
-// router.get('/new', suppliesCtrl.addSupply);
-// router.get('/:id', suppliesCtrl.show);
-// router.delete('/:id', suppliesCtrl.delete);
-// router.get('/:id/edit', suppliesCtrl.edit);
-// router.put('/:id', suppliesCtrl.update);
+router.get('/', isLoggedIn, suppliesCtrl.index);
+router.get('/:id/supplydetails', isLoggedIn, suppliesCtrl.edit);
+router.delete('/:id', isLoggedIn, suppliesCtrl.delete);
+router.put('/:id', isLoggedIn, suppliesCtrl.update);
 
 function isLoggedIn(req, res, next) {
     if ( req.isAuthenticated() ) return next();

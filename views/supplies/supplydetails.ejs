@@ -1,0 +1,18 @@
+<%- include('../partials/header'); %>
+
+
+
+<h1>Supply Details</h1>
+<form action="/supplies/<%= supplies._id %>?_method=PUT" method="POST">
+<input id="itemQuantity" value="<%= supplies.itemQuantity %>" name="quantity" type="number">
+<input id="itemName" value="<%= supplies.itemName %> " name="name" type="text">
+<input id="itemBrand" value="<%= supplies.itemBrand %> " name="brand" type="text">
+<input id="itemCategory" value="<%= supplies.itemCategory %>" name="category" type="text">
+
+
+    <button type="submit" name="action">Edit Details</button>
+</form>
+
+
+
+<%- include('../partials/footer'); %>
