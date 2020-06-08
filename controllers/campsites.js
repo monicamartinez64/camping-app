@@ -19,7 +19,6 @@ function query(req, res) {
 function search(req, res) {
     axios.get(`https://developer.nps.gov/api/v1/parks?api_key=${process.env.PARK_API_KEY}&statecode=${req.body.state}`)
     .then(response => {
-        console.log(response.data)
         res.render('campsites/searchpage', {parks: response.data.data, user: req.user})
     })
 }
@@ -27,7 +26,6 @@ function search(req, res) {
 function show(req, res) {
     axios.get(`https://developer.nps.gov/api/v1/parks?api_key=${process.env.PARK_API_KEY}&parkCode=${req.params.parkCode}`)
     .then(response => {
-        console.log(response.data)
         res.render('campsites/parkDetails', {park: response.data.data[0], user: req.user})
     })
 }

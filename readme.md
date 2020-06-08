@@ -1,5 +1,7 @@
 # Camping Tracking App
 
+Use App [Here](https://camping-tracking-app.herokuapp.com/)
+
 ## Getting Started:
 1. AAU I should be prompted to the following page as soon as I log in.
 
@@ -28,3 +30,6 @@
 9.  AAU I should be able to edit and delete each item on the checklist.
 
 ![Imgur](https://imgur.com/AZ81Eqp.png)
+
+## Future Goals
+1. I'd like to be able to organize this app a little bit more to make it more user friendly. My original goal was to be able to filter parks based on activities and amenities. I would still like to add a separate page for users to view their saved campsites based on activity.

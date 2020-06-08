@@ -11,12 +11,12 @@
 
 
 
-<form action="/campsites/<%= parks._id %>?_method=DELETE" method="POST">
-   <button>Remove Park</button></form>
+
    <form action="/campsites/<%= parks.parkCode %>/query" method="GET">
       <button type="submit">View Park Details</button>
     </form>
-
+<form action="/campsites/<%= parks._id %>?_method=DELETE" method="POST">
+   <button>Remove Park</button></form>
 
 
 <% }) %> 

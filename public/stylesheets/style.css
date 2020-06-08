@@ -9,7 +9,7 @@ a {
   color: whitesmoke;
 }
 
-.nav ul {
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -20,12 +20,12 @@ a {
   width: 100%;
 }
 
-.nav li {
+li {
   float: left;
   list-style: none;
 }
 
-.nav li a {
+li a {
   display: block;
   color: white;
   text-align: center;
@@ -33,7 +33,7 @@ a {
   text-decoration: none;
 }
 
-.nav li a:hover:not(.active) {
+li a:hover:not(.active) {
   background-color: rgb(17, 17, 17);
 }
 
@@ -43,7 +43,7 @@ a {
 
 button {
   display: inline;
-  margin: 10px;
+  margin: 0px;
 }
 
 .parkimage {
