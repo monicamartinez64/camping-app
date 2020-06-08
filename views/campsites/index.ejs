@@ -1,7 +1,7 @@
 <%- include('../partials/header'); %>
 
 
-<h1>My Campsites</h1><hr>
+<h1>My Campsites</h1>
 
 
 <% parks.forEach(parks => { %> 
@@ -12,7 +12,10 @@
 
 
 <form action="/campsites/<%= parks._id %>?_method=DELETE" method="POST">
-   <button>Remove Park</button><br></form>
+   <button>Remove Park</button></form>
+   <form action="/campsites/<%= parks.parkCode %>/query" method="GET">
+      <button type="submit">View Park Details</button>
+    </form>
 
 
 

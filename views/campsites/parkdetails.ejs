@@ -3,13 +3,29 @@
 
 <img class="parkimage" src="<%= park.images[0].url%>"><br>
 
-<div><%= park.addresses%></div><br> 
+<h4>Address</h4>
+<div><%= park.addresses[0].line1 %></div> 
+<div><%= park.addresses[0].city %>, <%= park.addresses[0].stateCode %></div> 
+<div></div>
+<div><%= park.addresses[0].postalCode %></div></br>
 
+<h4>Park Description</h4>
+<div><%= park.operatingHours[0].description %></div>
+</br>
+
+<h4>Weather Info</h4>
 <div><%= park.weatherInfo %></div><br> 
 
-<div><%= park.activities %></div><br> 
+<h4>Park Activities</h4>
+<ul>
+<li><%= park.activities[0].name %></li> 
+<li><%= park.activities[1].name %></li>
+<li><%= park.activities[2].name %></li>
+<li><%= park.activities[3].name %></li> 
+<li><%= park.activities[4].name %></li>
+<li><%= park.activities[5].name %></li> 
+</ul>
 
-<div><%= park.topics %></div><br>
 
 <div><a href="<%= park.url%>" target="_blank">Visit Park Site for More Info</a></div><br>
 
@@ -24,6 +40,9 @@
                 <input hidden name="parkCode" value="<%=park.parkCode%>">
             <button type="submit">Add Park to Visits</button>
 </form>
+
+
+
 
 
 
