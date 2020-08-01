@@ -48,5 +48,4 @@ function deletePark(req, res) {
     Campsite.findByIdAndDelete(req.params.id, function(err){
         res.redirect('/campsites')
     })
-    console.log(deletePark);
 }

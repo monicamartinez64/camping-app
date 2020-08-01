@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var suppliesCtrl = require('../controllers/supplies');
 const campsiteCtrl = require('../controllers/campsites');
 
 

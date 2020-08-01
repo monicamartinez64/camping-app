@@ -1,11 +1,18 @@
 <%- include('../partials/header'); %>
 <h2>My Campsites</h2><br>
 
-<div><%= parks.images %></div>
+
+
+
 
 <% parks.forEach(parks => { %> 
 <div><h5><%= parks.name %> National Park</h5></div><br> 
 
+<div><p>
+
+<%= parks.topics[0] %>
+
+</p></div>
 
 <form action="/campsites/<%= parks.parkCode %>/query" method="GET">
       <button class ="btn red accent-1 waves-effect waves-light" type="submit">View Park Details</button>

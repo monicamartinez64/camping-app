@@ -14,7 +14,7 @@
         <form action="/campsites/" method="POST">
         <h3><%= park.name %></h3><br>
         <% if (park.images.length) { %>
-            <img class="rmaterialboxed" width="650" src="<%= park.images[0].url %>" alt="park image"><br>
+            <img class="materialboxed" width="650" src="<%= park.images[0].url %>" alt="park image"><br>
             <% } %>
                    <input hidden name="name" value="<%= park.name %>">
                    <input hidden name="activities" value="<%= park.activities %>"> 
