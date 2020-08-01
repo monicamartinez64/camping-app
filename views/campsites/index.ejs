@@ -1,27 +1,24 @@
 <%- include('../partials/header'); %>
-<h2>My Campsites</h2><br>
-
-
-
-
+<h2>My Parks</h2><br>
 
 <% parks.forEach(parks => { %> 
-<div><h5><%= parks.name %> National Park</h5></div><br> 
+<div><h5><%= parks.name %> National Park</h5></div>
+<p><a href="<%= parks.url%>" target="_blank">Visit Park Site for More Info</a></p>
 
-<div><p>
+<div><img class="materialboxed" width="450" src="<%= parks.image %>" alt="park image"></div>
 
-<%= parks.topics[0] %>
-
-</p></div>
-
+<br><br>
 <form action="/campsites/<%= parks.parkCode %>/query" method="GET">
-      <button class ="btn red accent-1 waves-effect waves-light" type="submit">View Park Details</button>
-    </form>
+   <button class ="btn red accent-1 waves-effect waves-light" type="submit">View Park Details</button>
+</form>
 <form action="/campsites/<%= parks._id %>?_method=DELETE" method="POST">
-   <button class ="btn red accent-1 waves-effect waves-light">Remove Park</button></form>
+   <button class ="btn red accent-1 waves-effect waves-light">Remove Park</button>
+</form>
 
 
 <% }) %> 
+
 <br><br>
+
 <button class ="btn red accent-1 waves-effect waves-light"><a href="/campsites/query">Add a New Park</a></button><br>
 <%- include('../partials/footer'); %>
