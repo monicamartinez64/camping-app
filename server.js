@@ -12,6 +12,7 @@ require('dotenv').config();
 
 
 var indexRouter = require('./routes/index');
+// var usersRouter = require('./routes/users');
 var suppliesRouter = require('./routes/supplies');
 var campsitesRouter = require('./routes/campsites');
 

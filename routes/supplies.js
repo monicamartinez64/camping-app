@@ -6,8 +6,9 @@ router.post('/', isLoggedIn, suppliesCtrl.create);
 router.get('/', isLoggedIn ,suppliesCtrl.getSupplies);
 router.get('/', isLoggedIn, suppliesCtrl.index);
 router.get('/:id/supplydetails', isLoggedIn, suppliesCtrl.edit);
-router.delete('/:id', isLoggedIn, suppliesCtrl.delete);
 router.put('/:id', isLoggedIn, suppliesCtrl.update);
+// router.delete('/:id', isLoggedIn, suppliesCtrl.delete);
+
 
 function isLoggedIn(req, res, next) {
     if ( req.isAuthenticated() ) return next();

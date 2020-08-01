@@ -1,14 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const supplySchema = new mongoose.Schema ({
-    itemName: {
+const supplySchema = new Schema ({
+  itemName: {
+    type: String,
+  },
+  itemBrand: {
+    type: String,
+  },
+  itemQuantity: {
+      type: Number,
+  },
+  itemCategory: {
       type: String,
-    },
-    itemBrand: {
-      type: String,
-    }
-  });
+  }
+});
 
 const userSchema = new mongoose.Schema({
   name: String,
@@ -19,6 +25,5 @@ const userSchema = new mongoose.Schema({
 }, {
   timestamps: true
 });
-
 
 module.exports = mongoose.model('User', userSchema);

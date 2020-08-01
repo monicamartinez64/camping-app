@@ -1,18 +1,20 @@
 <%- include('../partials/header'); %>
-<h1>Search Page</h1>
+<h2>Search National Parks</h2>
+
 <form action="/campsites/query" method="POST">
-    <input type="text" name="state" placeholder="Please enter a state (2 letters)">
-    <button type="submit">Search</button>
+    <input type="text" name="state" placeholder="Please enter a state abbreviation (2 letters)">
+    <button class ="btn red accent-1 waves-effect waves-light" type="submit">Search</button>
 </form>
+
 <% if (!parks) { %>
 <h2>Please enter a state...</h2>
 <% } %>
 <% if(parks) { %>
     <% parks.forEach((park) => { %>
         <form action="/campsites/" method="POST">
-        <%= park.name %><br>
+        <h3><%= park.name %></h3><br>
         <% if (park.images.length) { %>
-            <img width=500 src="<%= park.images[0].url %>" alt=""><br>
+            <img class="rmaterialboxed" width="650" src="<%= park.images[0].url %>" alt="park image"><br>
             <% } %>
                    <input hidden name="name" value="<%= park.name %>">
                    <input hidden name="activities" value="<%= park.activities %>"> 
@@ -24,11 +26,23 @@
                     <input hidden name="image" value="<%= park.images[0].url %>"> 
                     <input hidden name="parkCode" value="<%=park.parkCode%>">
                     <% } %>
-                <button type="submit">Add Park to Visits</button>
-            </form>   
+                <button class ="btn red accent-1 waves-effect waves-light" type="submit">Add Park to Visits</button>
+            </form>
+            
+            
+
             <form action="/campsites/<%= park.parkCode %>/query" method="GET">
-            <button type="submit">View Park Details</button>
+            <button class ="btn red accent-1 waves-effect waves-light" type="submit">View Park Details</button>
           </form></br>
         <% }) %>
 <% } %>
+
+
+<script>
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+</script>
+
+
 <%- include('../partials/footer') %>

@@ -1,8 +1,11 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #27b5b0;
+  font-family: 'Mukta', sans-serif;
+  background-color: #005366;
   color: white;
+}
+
+main {
+  padding: 30px;
 }
 
 a {
@@ -14,7 +17,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #27b5b0;
+  background-color: #fa8c6e;
   position: fixed;
   top: 0;
   width: 100%;
@@ -34,22 +37,50 @@ li a {
 }
 
 li a:hover:not(.active) {
-  background-color: rgb(17, 17, 17);
+  background-color: #005366;
 }
 
 .active {
-  background-color: #4CAF50;
+  background-color: #ff8a80;
 }
 
 button {
   display: inline;
-  margin: 0px;
 }
 
-.parkimage {
-  max-height: 200px;
+.btn {
+  display: inline;
 }
 
 button a {
   color: black;
+}
+
+form {
+  display: inline;
+}
+
+.input-field input[type=text]:focus {
+  color: white;
+  border-bottom: 2px solid white;
+  box-shadow: 0 2px 0 0 white;
+}
+/* valid color */
+.input-field input[type=text].valid {
+  color: white;
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+  color: white;
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: white;
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
 }

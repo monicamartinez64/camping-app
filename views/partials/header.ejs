@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Mukta&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
-  <nav>
-    <ul class="nav">
-    <li class="nav"><a href="/">Home</a></li>
-    <li class="nav"><a href="/campsites">Campsites</a></li>
-    <li class="nav"><a href="/supplies">Supplies</a></li>
 
-    
-    <li class="oauth">
-      <% if (user) { %>
-          <a href="/logout"><i class="material-icons left"><%= user.name %></i>Log Out</a>
-      <% } else { %>
-          <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
-      <% } %>
-    </li>
-  </ul>
-  </nav>
-</head>
+
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Logo</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/campsites">My Campsites</a></li>
+          <li><a href="/supplies">My Supplies</a></li>
+          <li><a href="/campsites/query">Add New Campsite</a></li>
+          <li class="oauth">
+            <% if (user) { %>
+              <li><a href="#">Welcome, <%= user.name %></a></li>
+                <a href="/logout">Log Out</a>
+            <% } else { %>
+                <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
+            <% } %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <main>
+
+
+
+

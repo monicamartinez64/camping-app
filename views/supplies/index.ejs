@@ -1,42 +1,42 @@
 <%- include('../partials/header'); %>
 <h1>Camping Supplies</h1>
-
 <form action="/supplies" method="POST">
-    <input name="itemName"  placeholder="Name" value="<%= supplies.itemName %>"> 
-    <input name="itemBrand" placeholder="Brand" value="<%= supplies.itemBrand %>"> 
-    <input name="itemQuantity" type="number" placeholder="Quantity" value="<%= supplies.itemQuantity %>"> 
-    <input name="itemCategory" placeholder="Category" value="<%= supplies.itemCategory %>">
+    <input type="text" name="itemName"  placeholder="Name" value="<% supplies.itemName %>"> 
+    <input type="text" name="itemBrand" placeholder="Brand" value="<% supplies.itemBrand %>"> 
+    <input type="text" name="itemQuantity" type="number" placeholder="Quantity" value="<% supplies.itemQuantity %>"> 
+    <input type="text" name="itemCategory" placeholder="Category" value="<% supplies.itemCategory %>">
 <button type="submit">Add to List</button>
 </form>
 
-
-    
-            <% if(supplies) { %>
-                <% supplies.forEach((s) => { %>
+<% if(supplies.length) { %>
+    <% supplies.forEach((s) => { %>
 
 
 <table>
-    <tr>
-        <td><input type="checkbox"></td>
-        <td><%= s.itemQuantity %></td>
-        <td><%= s.itemName %></td>
-        <td><%= s.itemBrand %> </td>
-        <td><%= s.itemCategory %></td>
-        <td>
-            <form action="/supplies/<%= s._id %>/supplydetails" method="GET">
-                        <button type="submit">edit</button>
-                    </form>
-        </td>
-        <td>
-            <form action="/supplies/<%= s._id %>?_method=DELETE" method="POST">
-                <button>Delete</button>
-            </form>
-        </td>
+<tr>
+<td><input type="checkbox"></td>
+<td><%= s.itemQuantity %></td>
+<td><%= s.itemName %></td>
+<td><%= s.itemBrand %> </td>
+<td><%= s.itemCategory %></td>
+<td>
+<form action="/supplies/<%= s._id %>/supplydetails" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+</td>
+<td>
+<form action="/supplies/<%= s._id %>?_method=DELETE" method="POST">
+    <button>Delete</button>
+</form>
+</td>
 </tr>
 </table>
-            <%   }) %> 
-            <%    } %> 
-   
+<%   }) %> 
+<%    } %> 
+
+
+    
+           
 
 
 

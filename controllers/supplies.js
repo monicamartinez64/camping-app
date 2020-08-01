@@ -1,20 +1,21 @@
-const Supply = require('../models/supplies');
+const User = require('../models/user');
 
 module.exports = {
     create,
     index,
     getSupplies,
     edit,
-    getSupplyDetails,
     update,
     delete: deleteOne
 }
 
 function create(req, res) {
-    const newSupply = new Supply(req.body);
-    newSupply.save(function(err) {
-        res.redirect('/supplies');    
-    })
+    User.findById(req.user.id, function(err, user) {
+        user.supplies.push(req.body);
+        user.save(function(err) {
+            res.redirect('/supplies');
+        });
+    })    
 }
 
 function index(req, res) {
@@ -24,31 +25,37 @@ function index(req, res) {
 }
 
 function getSupplies(req, res) {
-    Supply.find({}, function(err, supplies) {
-        res.render('supplies', {supplies, user: req.user})
+    User.findById(req.user.id, function(err, user) {
+        res.render('supplies', {supplies: user.supplies, user: req.user})
     })
 }
 
 function edit(req, res) {
-    Supply.findById(req.params.id, function(err, supplies){
-    res.render('supplies/supplydetails', {supplies, user: req.user})
+    User.findById(req.user.id, function(err, user){
+        let supply = user.supplies.id(req.params.id);
+        res.render('supplies/supplydetails', {supply, user: req.user})
     })
 }
 
-function getSupplyDetails(req, res) {
-    res.render('supplies/supplydetails', {supplies, user: req.user})
-}
-
 function update(req, res) {
-    Supply.findByIdAndUpdate (req.params.id, req.body, {new: true}, function() {
-        Supply.save;
-        res.redirect('/supplies');
+    User.findById(req.user.id, req.body, function() {
+        let supply = user.supplies.id(req.params.id);
+        
+        // req.user.supplies.splice(req.params.idx, 1, req.body);
+        req.user.save(function(err) {
+        res.redirect('/supplies');    
+        }) 
         console.log(update);
     })
 }
 
 function deleteOne(req, res) {
-    Supply.findByIdAndDelete(req.params.id, function(err){
-        res.redirect('/supplies');
+    User.findById(req.user.id, function(err){
+        user.supplies.id(req.params.id).remove();
+        // req.user.supplies.splice(req.params.idx, 1);
+        req.user.save(function(err) {
+            res.redirect('/supplies');    
+        }) 
     })
 }
+

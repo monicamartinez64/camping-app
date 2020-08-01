@@ -16,4 +16,5 @@ const supplySchema = new Schema ({
     }
   });
 
-module.exports = mongoose.model('Supply', supplySchema);
+  export default supplySchema
+// module.exports = mongoose.model('Supply', supplySchema);
